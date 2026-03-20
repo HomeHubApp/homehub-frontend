@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './SignUp.css'
 import bedroomImg from './assets/bedroom.jpg'
-
+import axios from 'axios'
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
@@ -14,9 +14,24 @@ export default function SignUp() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+
+  const handleSubmit =async (e) => {
+      e.preventDefault()
+    try{
+    const response = await  axios.post('http://10.211.19.180:5000/api/auth/signup', formData)
+    const data=response.data
+    console.log(data);
+   
+
+  
     console.log('Form submitted:', formData)
+    }catch(error){
+     // This will log the actual message from your backend (e.g., "Password too short")
+  console.log('Server Error Detail:', error.response?.data);
+  
+  console.error('Error during sign up:', error);
+  alert(error.response?.data?.message || 'An error occurred during sign up.');
+    }
   }
 
   return (
@@ -163,7 +178,14 @@ export default function SignUp() {
 
           <p className="signin-text">
             Already have an account?{' '}
-            <a href="#" className="signin-link">
+            <a
+              href="#"
+              className="signin-link"
+              onClick={(e) => {
+                e.preventDefault()
+                // TODO: route to login page e.g. navigate('/login')
+              }}
+            >
               Login
             </a>
           </p>

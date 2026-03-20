@@ -13,16 +13,17 @@ body,
   height: 100%;
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   background: #ffffff;
+  width: 100%;
+  overflow: hidden;
 }
 
-/* ── Outer wrapper ─────────────────────────────────────── */
 .signup-wrapper {
   display: flex;
   min-height: 100vh;
   width: 100%;
 }
 
-/* ── Left image panel ──────────────────────────────────── */
+
 .signup-image-panel {
   flex: 0 0 48%;
   position: relative;
@@ -36,7 +37,6 @@ body,
   display: block;
 }
 
-/* ── Right form panel ──────────────────────────────────── */
 .signup-form-panel {
   flex: 1;
   display: flex;
@@ -51,7 +51,7 @@ body,
   max-width: 360px;
 }
 
-/* ── Heading ───────────────────────────────────────────── */
+
 .signup-title {
   font-size: 22px;
   font-weight: 700;
@@ -68,7 +68,7 @@ body,
   margin-bottom: 28px;
 }
 
-/* ── Google button ─────────────────────────────────────── */
+
 .btn-google {
   width: 100%;
   display: flex;
@@ -97,7 +97,7 @@ body,
   flex-shrink: 0;
 }
 
-/* ── Divider ───────────────────────────────────────────── */
+
 .divider {
   display: flex;
   align-items: center;
@@ -118,7 +118,7 @@ body,
   flex-shrink: 0;
 }
 
-/* ── Form groups ───────────────────────────────────────── */
+
 .form-group {
   margin-bottom: 16px;
 }
@@ -153,7 +153,6 @@ body,
   box-shadow: 0 0 0 3px rgba(26, 74, 122, 0.1);
 }
 
-/* ── Password field with icon ──────────────────────────── */
 .input-wrapper {
   position: relative;
 }
@@ -186,7 +185,7 @@ body,
   height: 18px;
 }
 
-/* ── Create account button ─────────────────────────────── */
+
 .btn-create {
   width: 100%;
   padding: 12px 16px;
@@ -209,7 +208,7 @@ body,
   transform: scale(0.99);
 }
 
-/* ── Sign-in link ──────────────────────────────────────── */
+
 .signin-text {
   margin-top: 18px;
   text-align: center;
@@ -229,7 +228,7 @@ body,
   text-decoration: underline;
 }
 
-/* ── Responsive ────────────────────────────────────────── */
+
 @media (max-width: 768px) {
   .signup-wrapper {
     flex-direction: column;
