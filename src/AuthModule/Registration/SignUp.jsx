@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './SignUp.css'
-import bedroomImg from './assets/bedroom.jpg'
+import bedroomImg from '../../assets/bedroom.jpg'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
@@ -138,21 +139,6 @@ export default function SignUp() {
                   aria-label={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword ? (
-                    /* Eye-off icon */
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
-                      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
-                      <line x1="1" y1="1" x2="23" y2="23" />
-                    </svg>
-                  ) : (
                     /* Eye icon */
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -166,14 +152,36 @@ export default function SignUp() {
                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                       <circle cx="12" cy="12" r="3" />
                     </svg>
+                    
+                  ) : (
+                    /* Eye-off icon */
+                     <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                      <line x1="1" y1="1" x2="23" y2="23" />
+                    </svg>
+                    
                   )}
                 </button>
               </div>
             </div>
 
-            <button className="btn-create" type="submit">
-              Create account
-            </button>
+            <Link to='/otp'>
+              <button className="btn-create" type="submit">
+                Create account
+              </button>
+            </Link>
+              
+
+
           </form>
 
           <p className="signin-text">
@@ -194,3 +202,9 @@ export default function SignUp() {
     </div>
   )
 }
+
+                    
+
+
+
+                   
