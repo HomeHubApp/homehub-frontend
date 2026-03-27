@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import './SignUp.css'
-import bedroomImg from '../../assets/bedroom.jpg'
+import bedroomImg from '../../assets/login-image.png'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+
 export default function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
@@ -185,17 +186,8 @@ export default function SignUp() {
           </form>
 
           <p className="signin-text">
-            Already have an account?{' '}
-            <a
-              href="#"
-              className="signin-link"
-              onClick={(e) => {
-                e.preventDefault()
-                // TODO: route to login page e.g. navigate('/login')
-              }}
-            >
-              Login
-            </a>
+            Already have an account
+              <Link to="/login">Login</Link>
           </p>
         </div>
       </div>

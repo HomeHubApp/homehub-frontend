@@ -6,7 +6,7 @@ import LoginForm from './AuthModule/Login/Login'
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<SignUp />} />
+      <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<LoginForm />} />
       <Route path='/otp' element={<Otp />} />
     </Routes>

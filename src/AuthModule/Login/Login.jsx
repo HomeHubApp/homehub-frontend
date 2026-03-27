@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import '../../assets/CSS/login.css'
 import loginImage from "../../assets/login-image.png";
+import { Link } from "react-router-dom";
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -126,7 +127,9 @@ function LoginForm() {
           </form>
 
           <p className="signup">
-            Don’t have an account? <span>Create an account</span>
+            Don’t have an account? <span>
+               <Link to="/signup">Create an account</Link>
+               </span>
           </p>
         </div>
       </div>
