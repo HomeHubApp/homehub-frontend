@@ -1,0 +1,48 @@
+import { createContext, useContext, useState } from "react";
+
+const SetupContext = createContext();
+
+export const useSetup = () => useContext(SetupContext);
+
+export const SetupProvider = ({ children }) => {
+  const [formData, setFormData] = useState({
+    address: "",
+    homeName: "",
+    devices: [], // you can expand later
+    // add more fields as needed
+  });
+
+  const [currentStep, setCurrentStep] = useState(0);
+
+  const updateFormData = (newData) => {
+    setFormData(prev => ({ ...prev, ...newData }));
+  };
+
+  const nextStep = () => {
+    setCurrentStep(prev => prev + 1);
+     console.log("Moving to next step");
+  };
+  const prevStep = () => {
+    console.log("Moving to previous step");
+    setCurrentStep(prev => prev - 1);
+  };
+
+  const submitSetup = async () => {
+    // Send to backend
+    console.log("Final data:", formData);
+    // await axios.post('/api/homes', formData);
+  };
+
+  return (
+    <SetupContext.Provider value={{
+      formData,
+      updateFormData,
+      currentStep,
+      nextStep,
+      prevStep,
+      submitSetup
+    }}>
+      {children}
+    </SetupContext.Provider>
+  );
+};
