@@ -11,6 +11,7 @@ function LandingPage() {
             <span className="logo-text">HomeHub</span>
           </div>
           <div className="nav-links">
+            <a href="/login">Login Feature</a>
             <a href="#features">Features</a>
             <a href="#how">How it Works</a>
             <a href="#pricing">Pricing</a>
