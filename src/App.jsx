@@ -1,5 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
+// Index Page
+import LandingPage from './LandingPage';
 // Auth Pages
 import SignUp from './AuthModule/Registration/SignUp';
 import Otp from './AuthModule/otp auth/Otp';
@@ -12,6 +14,7 @@ import { SetupProvider } from './UserOnboarding/context/SetUpContext';  // ← C
 function App() {
   return (
     <Routes>
+      <Route path= '/' element={<LandingPage />} />
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<LoginForm />} />
       <Route path='/otp' element={<Otp />} />
