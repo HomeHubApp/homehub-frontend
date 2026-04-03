@@ -11,6 +11,10 @@ import LoginForm from './AuthModule/Login/Login';
 import SetupWizard from './UserOnboarding/pages/SetupWizard';           // ← Main wizard
 import { SetupProvider } from './UserOnboarding/context/SetUpContext';  // ← Context
 
+// import Dashboard
+import DashboardLayout from './components/DashboardLayout';
+import Dashboard from './Dashboard/Dashboard';
+
 function App() {
   return (
     <Routes>
@@ -28,6 +32,11 @@ function App() {
           </SetupProvider>
         } 
       />
+      {/* Dashboard Layout Route */}
+      <Route element={<DashboardLayout />} >
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Route>
+     
     </Routes>
   );
 }
