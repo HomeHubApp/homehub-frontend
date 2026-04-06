@@ -8,10 +8,10 @@ import { Button, Card } from "flowbite-react";
 export default function RoomsCard() {
   // Mock data to be replaced with real data from backend
   const stats = [
-    { roomName: "Living Room", no_devices: 3, icon: HousePlus, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
-    { roomName: "Kitchen", no_devices: 3, icon: Sun, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
-    { roomName: "Master Bedroom", no_devices: 2, icon: Clock, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
-    { roomName: "Home Office", no_devices: 2, icon: Check, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
+    {id:1, roomName: "Living Room", no_devices: 3, icon: HousePlus, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
+    {id:2, roomName: "Kitchen", no_devices: 3, icon: Sun, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
+    {id:3, roomName: "Master Bedroom", no_devices: 2, icon: Clock, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
+    {id:4, roomName: "Home Office", no_devices: 2, icon: Check, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
   ];
 
   return (
@@ -38,9 +38,9 @@ export default function RoomsCard() {
           <div className="grid grid-cols-2 gap-5 h-full">        
             {/* Loop through stats and input the values into the card. */}
             {stats.map((stat, index) => (
-              // 1. Removed the extra <div> and moved the key to the Card
-              // 2. Added h-full to the Card so they all stretch to the same height
-              <Card 
+              
+              <Link to ={`/roomdetails/${stat.id}`} key={index} className="w-full h-full">
+                <Card 
                 key={index}
                 className="w-full h-full shadow-blue-200 transition-all duration-300 
                 hover:-translate-y-2 hover:shadow-lime-900/50 hover:shadow-lg border-0 rounded-2xl 
@@ -66,6 +66,8 @@ export default function RoomsCard() {
 
                 </div>
               </Card>
+              </Link>
+              
             ))}
           </div>
         </div>
