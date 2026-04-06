@@ -14,6 +14,7 @@ import { SetupProvider } from './UserOnboarding/context/SetUpContext';  // ← C
 // import Dashboard
 import DashboardLayout from './components/DashboardLayout';
 import Dashboard from './Dashboard/Dashboard';
+import Rooms from './Dashboard/Rooms';
 
 
 
@@ -39,6 +40,7 @@ function App() {
       {/* Dashboard Layout Route */}
       <Route element={<DashboardLayout />} >
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/rooms" element={<Rooms />} />
       </Route>
      
     </Routes>

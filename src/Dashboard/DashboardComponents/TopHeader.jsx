@@ -1,7 +1,7 @@
 import { Dropdown, DropdownItem, Avatar } from "flowbite-react";
 import { Bell } from "lucide-react";
 
-export default function TopHeader() {
+export default function TopHeader({Title, Subtitle}) {
   return (
     // 1. flex justify-between pushes the left and right groups to the edges
     // 2. We use flex-col on very small screens, and sm:flex-row on normal screens so it doesn't squish on mobile
@@ -11,11 +11,11 @@ export default function TopHeader() {
       {/* flex-col stacks the Good Morning text and the Date on top of each other */}
       <div className="flex flex-col">
         <h1 className="text-[24px] md:text-[31px] font-bold font-['Plus_Jakarta_Sans'] leading-[120%] tracking-normal dark:text-white">
-          Good Morning, David
+         {Title}
         </h1>
         {/* Cleaned up the Figma classes to standard Tailwind text sizing and colors */}
         <p className="text-sm md:text-base font-medium text-gray-500 dark:text-gray-400 mt-1">
-          Saturday, 22 March • My House
+          {Subtitle}
         </p>
       </div>
 

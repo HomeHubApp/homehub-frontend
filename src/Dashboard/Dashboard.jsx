@@ -11,7 +11,10 @@ export default function OverviewPage() {
   return (
     <>
     {/* Welcome Navbar */}
-    <TopHeader />
+    <TopHeader
+    Title = "Good Morning, David"
+    Subtitle = "Saturday, 22 March • My House"
+     />
     {/* The Current Statistics Cards */}
       <StatCards />
 
