@@ -49,11 +49,12 @@ function LoginForm() {
   };
 
   return (
-    <div className="login-container">
-      {/* LEFT IMAGE */}
-      <div className="login-image">
-        <img src={loginImage} alt="Home setup" />
-      </div>
+    <div className="login-page">
+      <div className="login-container">
+        {/* LEFT IMAGE */}
+        <div className="login-image">
+          <img src={loginImage} alt="Home setup" />
+        </div>
 
       {/* RIGHT FORM */}
       <div className="login-form">
@@ -133,6 +134,7 @@ function LoginForm() {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 }

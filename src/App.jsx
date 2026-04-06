@@ -15,9 +15,13 @@ import { SetupProvider } from './UserOnboarding/context/SetUpContext';  // ← C
 import DashboardLayout from './components/DashboardLayout';
 import Dashboard from './Dashboard/Dashboard';
 
+
+
 function App() {
   return (
-    <Routes>
+     
+    <Routes>    
+ 
       <Route path= '/' element={<LandingPage />} />
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<LoginForm />} />
@@ -38,6 +42,7 @@ function App() {
       </Route>
      
     </Routes>
+
   );
 }
 

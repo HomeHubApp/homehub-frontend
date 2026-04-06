@@ -1,4 +1,4 @@
-* {
+.page * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,7 +14,7 @@
   padding: 20px;
 }
 
-.card {
+.page .card {
   background: #fff;
   max-width: 600px;
   width: 100%;
@@ -23,47 +23,47 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
 
-.title {
+.page .title {
   font-size: 26px;
   font-weight: 700;
   color: #1c1c1c;
   margin-bottom: 10px;
 }
 
-.subtitle {
+.page .subtitle {
   color: #6b6375;
   font-size: 14px;
   margin-bottom: 30px;
   line-height: 1.5;
 }
 
-.inner-card {
+.page .inner-card {
   border: 1px solid #eee;
   border-radius: 12px;
   padding: 20px;
   margin-bottom: 30px;
 }
 
-.step {
+.page .step {
   font-size: 12px;
   color: #c89b00;
   font-weight: 600;
   margin-bottom: 8px;
 }
 
-.inner-title {
+.page .inner-title {
   font-size: 18px;
   margin-bottom: 8px;
   color: #000;
 }
 
-.inner-text {
+.page .inner-text {
   font-size: 13px;
   color: #6b6375;
   margin-bottom: 20px;
 }
 
-.add-btn {
+.page .add-btn {
   width: 100%;
   padding: 14px;
   border-radius: 10px;
@@ -79,16 +79,16 @@
   transition: 0.3s;
 }
 
-.add-btn:hover {
+.page .add-btn:hover {
   border-color: #999;
 }
 
-.plus {
+.page .plus {
   font-size: 18px;
   font-weight: 200;
 }
 
-.finish-btn {
+.page .finish-btn {
   width: 100%;
   padding: 14px;
   border: none;
@@ -101,6 +101,6 @@
   color: #000;
 }
 
-.finish-btn:hover {
+.page .finish-btn:hover {
   background: #e6ad06;
 }

@@ -1,30 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
 
-* {
+.login-page * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
 }
 
-.login-container {
+.login-page .login-container {
   display: flex;
   height: 100vh;
 }
 
 /* IMAGE SIDE */
-.login-image {
+.login-page .login-image {
   flex: 1;
 }
 
-.login-image img {
+.login-page .login-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
 /* FORM SIDE */
-.login-form {
+.login-page .login-form {
   flex: 1;
   display: flex;
   justify-content: center;
@@ -32,19 +32,19 @@
   background: #f8f9fb;
 }
 
-.form-box {
+.login-page .form-box {
   width: 85%;
   max-width: 400px;
 }
 
-h2 {
+.login-page h2 {
   font-weight: 500;
   margin-bottom: 8px;
   color: #000000bf;
   text-align: center;
 }
 
-.subtitle {
+.login-page .subtitle {
   color: #0000009e;
   margin-bottom: 25px;
   font-size: 14px;
@@ -52,7 +52,7 @@ h2 {
 }
 
 /* GOOGLE BUTTON */
-.google-btn {
+.login-page .google-btn {
   width: 100%;
   color: #666;
   font-weight: 700;
@@ -69,36 +69,36 @@ h2 {
   font-size: 14px;
 }
 
-.google-btn img {
+.login-page .google-btn img {
   width: 18px;
 }
 
-.google-btn:hover {
+.login-page .google-btn:hover {
   background: #f1f1f1;
 }
 
 /* DIVIDER */
-.divider {
+.login-page .divider {
   display: flex;
   align-items: center;
   margin: 25px 0;
 }
 
-.divider hr {
+.login-page .divider hr {
   flex: 1;
   border: none;
   height: 1px;
   background: #ddd;
 }
 
-.divider span {
+.login-page .divider span {
   margin: 0 10px;
   font-size: 12px;
   color: #999;
 }
 
 /* FORM */
-form label {
+.login-page form label {
   display: block;
   margin-bottom: 5px;
   font-size: 13px;
@@ -106,7 +106,7 @@ form label {
   font-weight: 700;
 }
 
-form input {
+.login-page form input {
   width: 100%;
   padding: 10px;
   margin-bottom: 1px;
@@ -117,42 +117,41 @@ form input {
   background-color: #fff !important;
   color: #000 !important;
   transition: 0.2s;
-  
 }
 
 /* When typing / focus */
-form input:focus {
+.login-page form input:focus {
   background-color: #fff !important;
   outline: none;
   border-color: #f4b400;
 }
 
 /* Fix Chrome autofill grey background */
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+.login-page input:-webkit-autofill,
+.login-page input:-webkit-autofill:hover,
+.login-page input:-webkit-autofill:focus,
+.login-page input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 1000px #fff inset !important;
   -webkit-text-fill-color: #000 !important;
   transition: background-color 5000s ease-in-out 0s;
 }
 
-.password-field {
+.login-page .password-field {
   position: relative;
   width: 100%;
 }
 
-.password-field input {
+.login-page .password-field input {
   width: 100%;
-  padding: 12px; 
+  padding: 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
   background-color: #fff;
-  color: #000; /* text color black */
+  color: #000;
   line-height: 1.2;
 }
 
-.password-field .toggle-password {
+.login-page .password-field .toggle-password {
   position: absolute;
   top: 45%;
   right: 10px;
@@ -160,14 +159,13 @@ input:-webkit-autofill:active {
   cursor: pointer;
 }
 
-.password-field ::placeholder{
+.login-page .password-field ::placeholder {
   font-size: 20px;
   font-weight: 700;
 }
 
-
 /* FORGOT */
-.forgot {
+.login-page .forgot {
   text-align: right;
   font-size: 12px;
   font-weight: 500;
@@ -177,7 +175,7 @@ input:-webkit-autofill:active {
 }
 
 /* LOGIN BUTTON */
-.login-btn {
+.login-page .login-btn {
   width: 100%;
   padding: 11px;
   background: #f4b400;
@@ -190,19 +188,19 @@ input:-webkit-autofill:active {
   transition: 0.3s;
 }
 
-.login-btn:hover {
+.login-page .login-btn:hover {
   background: #e0a800;
 }
 
 /* SIGNUP */
-.signup {
+.login-page .signup {
   margin-top: 15px;
   font-size: 13px;
   color: #000000cf;
   text-align: center;
 }
 
-.signup span {
+.login-page .signup span {
   color: #f4b400;
   cursor: pointer;
   font-weight: 500;
@@ -210,15 +208,15 @@ input:-webkit-autofill:active {
 
 /* 📱 RESPONSIVE */
 @media (max-width: 768px) {
-  .login-container {
+  .login-page .login-container {
     flex-direction: column;
   }
 
-  .login-image {
+  .login-page .login-image {
     height: 220px;
   }
 
-  .login-form {
+  .login-page .login-form {
     padding: 20px;
   }
 }
