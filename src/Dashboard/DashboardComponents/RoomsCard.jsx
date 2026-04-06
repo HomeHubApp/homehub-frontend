@@ -21,7 +21,7 @@ export default function RoomsCard() {
         <div className="hidden ml-300 md:flex justify-start mt-4">
         <Button 
             size="xl" 
-            className="bg-[#FEC60E] enabled:hover:bg-[#E5B30C] text-gray-900 font-bold border-0 focus:ring-4 focus:ring-yellow-200 dark:focus:ring-yellow-900"
+            className="bg-[#FEC60E] dark:bg-[#FEC60E] enabled:hover:bg-[#E5B30C] text-gray-900 font-bold border-0 focus:ring-4 focus:ring-yellow-200 dark:focus:ring-yellow-900"
         >
             <div className="flex items-center text-lg">
             <CirclePlus className="w-6 h-6 mr-2" />
@@ -35,7 +35,7 @@ export default function RoomsCard() {
         
         {/* Left Side: This Div hosts all the room cards */}
         <div>
-          <div className="grid grid-cols-2 gap-3 h-full">        
+          <div className="grid grid-cols-2 gap-5 h-full">        
             {/* Loop through stats and input the values into the card. */}
             {stats.map((stat, index) => (
               // 1. Removed the extra <div> and moved the key to the Card
