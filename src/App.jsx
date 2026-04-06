@@ -16,6 +16,7 @@ import DashboardLayout from './components/DashboardLayout';
 import Dashboard from './Dashboard/Dashboard';
 import Rooms from './Dashboard/Rooms';
 import RoomDetails from './Dashboard/RoomDetails';
+import LightDevice from './Dashboard/LightDevice'
 
 
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path = "/roomdetails/:roomId" element={<RoomDetails />} />
+        <Route path = "/lightdevicedetails/:deviceID" element= {<LightDevice/>} />
       </Route>
      
     </Routes>

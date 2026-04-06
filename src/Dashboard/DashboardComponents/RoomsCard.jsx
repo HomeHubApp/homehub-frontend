@@ -73,7 +73,6 @@ export default function RoomsCard() {
         </div>
 
         {/* Right Side: "Add a room" Card */}
-        {/* Added w-1/2 for mobile screens, and md:w-full for larger screens */}
         <div className="w-1/2 md:w-full">
           <Card className="max-w-md h-full border-2 border-dotted border-gray-400 shadow-none hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
             <div className="flex flex-col items-center justify-center gap-2 py-6">        

@@ -12,7 +12,7 @@ export default function OverviewPage() {
     <>
     {/* Welcome Navbar */}
     <TopHeader
-    Title = "Good Morning, David"
+    Title = "Good Morning, Ndazibari"
     Subtitle = "Saturday, 22 March • My House"
      />
     {/* The Current Statistics Cards */}
@@ -32,10 +32,6 @@ export default function OverviewPage() {
         </div>
       </div>
 
-
-     
-        
-      
     </>
   );
 }

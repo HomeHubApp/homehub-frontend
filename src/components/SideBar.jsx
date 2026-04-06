@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom"; 
 import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems, DarkThemeToggle, Button } from "flowbite-react";
-import { BiBuoy } from "react-icons/bi";
 import { HiUsers, HiChartPie, HiCalendar, HiViewBoards, HiMenu, HiOutlineHome, HiPlus, HiViewList } from "react-icons/hi";
 
 export default function SideBar() {
