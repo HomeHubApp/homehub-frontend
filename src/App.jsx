@@ -17,7 +17,7 @@ import Dashboard from './Dashboard/Dashboard';
 import Rooms from './Dashboard/Rooms';
 import RoomDetails from './Dashboard/RoomDetails';
 import LightDevice from './Dashboard/LightDevice'
-
+import Schedule from "./Scheduling/Schedule";
 
 
 function App() {
@@ -29,6 +29,8 @@ function App() {
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<LoginForm />} />
       <Route path='/otp' element={<Otp />} />
+      <Route path="/schedule" element={<Schedule />} />
+
 
       {/* Setup Wizard Route */}
       <Route 
