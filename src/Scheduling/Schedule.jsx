@@ -48,7 +48,7 @@ export default function Schedule() {
   ];
 
   return (
-    <ScheduleLayout>
+    <>
 
       <TopHeader
         Title="Schedule"
@@ -73,7 +73,6 @@ export default function Schedule() {
       {showModal && (
         <AddScheduleModal close={() => setShowModal(false)} />
       )}
-
-    </ScheduleLayout>
+</>
   );
 }

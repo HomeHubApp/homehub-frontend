@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom"; 
-import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems, DarkThemeToggle, Button } from "flowbite-react";
-import { HiUsers, HiChartPie, HiCalendar, HiViewBoards, HiMenu, HiOutlineHome, HiPlus, HiViewList } from "react-icons/hi";
+import { Sidebar, SidebarItem, SidebarItemGroup, SidebarItems, DarkThemeToggle, Button, Dropdown, DropdownItem, Avatar } from "flowbite-react";
+import { HiUsers, HiChartPie, HiCalendar, HiViewBoards, HiMenu, HiOutlineHome, HiPlus, HiViewList} from "react-icons/hi";
+import { Bell } from "lucide-react";
 
 export default function SideBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,7 +13,55 @@ export default function SideBar() {
 
   return (
     <>
-      {/* Mobile Toggle Button */}
+    <div className="flex cols-2 md:flex-cols-2">
+      {/* --- RIGHT SIDE: Notification & Profile Dropdowns --- */}
+    
+      <div className="flex items-center gap-4 self-end sm:self-auto">
+        
+        {/* Notification Dropdown */}
+      <Dropdown className="bg-white hover:bg-white" arrowIcon = {false} 
+      inline
+      label={
+        // Custom Bell Trigger with a notification "dot"
+            <div className="relative p-2 bg-white dark:bg-gray-800 rounded-full shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors border border-gray-100 dark:border-gray-700">
+              <Bell className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              {/* The little red notification dot */}
+              <span className="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full 
+              border-2 border-white dark:border-gray-800">
+              </span>
+            </div>
+      }      
+      dismissOnClick={false}>
+        <DropdownItem>Kitchen Light was turned on manually</DropdownItem>
+        <DropdownItem>AC was turned off Manually</DropdownItem>
+        <DropdownItem>Sitting Room AC has been on for 24 hours straight</DropdownItem>
+        <DropdownItem>Security Lights are still On</DropdownItem>
+      </Dropdown>
+        
+
+        {/* User Profile Dropdown */}
+        <Dropdown 
+        inline
+        arrowIcon={false}
+        label={
+          <Avatar 
+              alt="User settings" 
+              img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" 
+              rounded 
+              className="ring-2 ring-gray-100 dark:ring-gray-700"
+            />
+        }
+        dismissOnClick={false}>
+            <DropdownItem>Welcome David</DropdownItem>
+            <DropdownItem>Profile</DropdownItem>
+            <DropdownItem>Settings</DropdownItem>
+            <DropdownItem>Sign out</DropdownItem>
+         </Dropdown>
+          
+
+      </div>
+
+        {/* Mobile Toggle Button */}
       <button
         onClick={toggleSidebar}
         type="button"
@@ -21,6 +70,9 @@ export default function SideBar() {
         <span className="sr-only">Open sidebar</span>
         <HiMenu className="w-6 h-6" />
       </button>
+    </div>
+ 
+      
 
       {/* Mobile Overlay */}
       {isOpen && (

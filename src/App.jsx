@@ -29,7 +29,7 @@ function App() {
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<LoginForm />} />
       <Route path='/otp' element={<Otp />} />
-      <Route path="/schedule" element={<Schedule />} />
+     
 
 
       {/* Setup Wizard Route */}
@@ -47,6 +47,7 @@ function App() {
         <Route path="/rooms" element={<Rooms />} />
         <Route path = "/roomdetails/:roomId" element={<RoomDetails />} />
         <Route path = "/lightdevicedetails/:deviceID" element= {<LightDevice/>} />
+         <Route path="/schedule" element={<Schedule />} />
       </Route>
      
     </Routes>

@@ -12,6 +12,7 @@ export default function RoomsCard() {
     {id:2, roomName: "Kitchen", no_devices: 3, icon: Sun, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
     {id:3, roomName: "Master Bedroom", no_devices: 2, icon: Clock, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
     {id:4, roomName: "Home Office", no_devices: 2, icon: Check, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
+    
   ];
 
   return (
