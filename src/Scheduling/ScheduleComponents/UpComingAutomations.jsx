@@ -12,7 +12,7 @@ export default function UpComingAutomations() {
   ];
 
   return (
-    <Card className="w-full">
+    <Card className="w-full dark:bg-gray-800 dark:shadow-none">
       <div className="mb-4 flex items-center justify-between">
         <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
           Upcoming Automations

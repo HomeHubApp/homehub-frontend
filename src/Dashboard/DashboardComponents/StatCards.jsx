@@ -11,6 +11,7 @@ export default function StatCards() {
     { label: "Total Devices", value: "8", icon: Sun, iconColor: "#1A1A1A", iconbgColor: "bg-[#FFF9E7]" },
     { label: "Devices On", value: "3", icon: Check , iconColor: "#22C55E", iconbgColor: "bg-[#E9F9EF]" },
     { label: "Scheduled Today", value: "2", icon: Clock, iconColor: "#B28B0A", iconbgColor: "bg-[#FFF9E7]" },
+    
   ];
 
   return (

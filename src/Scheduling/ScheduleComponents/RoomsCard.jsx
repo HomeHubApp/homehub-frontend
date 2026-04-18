@@ -43,7 +43,7 @@ export default function RoomsCard() {
                 <Card 
                 key={index}
                 className="w-full h-full shadow-blue-200 transition-all duration-300 
-                hover:-translate-y-2 hover:shadow-lime-900/50 hover:shadow-lg border-0 rounded-2xl 
+                hover:-translate-y-2 hover:shadow-lime-900/50 hover:shadow-lg border-0 rounded-2xl dark:bg-gray-800 dark:shadow-none
                 text-[16px] font-['Plus_Jakarta_Sans']"
               >
                 {/* Fixed invalid 'flex-cols' to 'flex flex-col' */}

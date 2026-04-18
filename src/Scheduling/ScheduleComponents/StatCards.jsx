@@ -22,9 +22,9 @@ export default function StatCards() {
         
           {/* Loop through stats and input the values into the card. */}
          {stats.map((stat, index) => (
-          <div>
-           <Card className="w-full shadow-blue-200 transition-all duration-300 hover:-translate-y-2.5
-               hover:shadow-lime-900/50 hover:shadow-lg border-0 rounded-2xl">
+          <div key={index}>
+           <Card className="w-full rounded-2xl border-0 shadow-blue-200 transition-all duration-300 hover:-translate-y-2.5
+               hover:shadow-lg hover:shadow-lime-900/50 dark:bg-gray-800 dark:shadow-none">
             <div className="flex items-center">
               <div className="mr-4">
                 <stat.icon className={`w-10 h-10 ${stat.iconbgColor} `} color={stat.iconColor}  />
@@ -35,7 +35,7 @@ export default function StatCards() {
                 </p>
 
                 <h2 className="text-[13px] font-medium text-gray-500 dark:text-gray-400">
-                  {stat.label}Total Devices
+                  {stat.label}
                 </h2>
                 
               </div>

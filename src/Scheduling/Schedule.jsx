@@ -57,7 +57,7 @@ export default function Schedule() {
       <div className="flex justify-end mb-6">
         <button
           onClick={() => setShowModal(true)}
-          className="bg-yellow-400 hover:bg-yellow-500 px-4 py-2 rounded-lg font-semibold"
+          className="rounded-lg bg-yellow-400 px-4 py-2 font-semibold text-gray-900 transition-colors hover:bg-yellow-500 focus:outline-none focus:ring-4 focus:ring-yellow-200 dark:bg-[#FEC60E] dark:text-gray-900 dark:hover:bg-[#E5B30C] dark:focus:ring-yellow-900"
         >
           + Add new schedule
         </button>
