@@ -36,7 +36,7 @@ export default function RoomDetails() {
 
   return (
     <>
-      <TopHeader Title="Room Details" Subtitle="Living Room" />
+      <TopHeader title="Room Details" subtitle="Living Room" />
       
       {/* Button */}
       <div className="hidden md:flex justify-end mt-4">

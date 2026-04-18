@@ -1,6 +1,5 @@
 import { useState } from "react";
-import ScheduleLayout from "../components/ScheduleLayout";
-import TopHeader from "./ScheduleComponents/TopHeader";
+import TopHeader from "../Dashboard/DashboardComponents/TopHeader";
 import ScheduleCard from "./ScheduleComponents/ScheduleCard";
 import AddScheduleModal from "./ScheduleComponents/AddScheduleModal";
 
@@ -51,8 +50,8 @@ export default function Schedule() {
     <>
 
       <TopHeader
-        Title="Schedule"
-        Subtitle="Automate your devices."
+        title="Schedule"
+        subtitle="Automate your devices."
       />
 
       <div className="flex justify-end mb-6">

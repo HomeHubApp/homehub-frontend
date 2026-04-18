@@ -5,8 +5,8 @@ export default function Rooms() {
   return (
     <>
       <TopHeader
-        Title="Rooms Overview"
-        Subtitle="Manage and monitor your smart home rooms"
+        title="Rooms Overview"
+        subtitle="Manage and monitor your smart home rooms"
       />
       <RoomsCard />
     </>

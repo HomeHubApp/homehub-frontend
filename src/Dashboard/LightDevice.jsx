@@ -23,8 +23,8 @@ export default function LightDetails() {
     return (
         <>
             <TopHeader
-                Subtitle="Room Details > Living Room"
-                Title="Main Light"
+                title="Main Light"
+                subtitle="Room Details > Living Room"
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
