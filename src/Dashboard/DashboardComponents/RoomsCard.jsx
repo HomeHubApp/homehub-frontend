@@ -17,9 +17,8 @@ export default function RoomsCard() {
 
   return (
     <>
-
     {/* Button */}
-        <div className="hidden ml-300 md:flex justify-start mt-4">
+        <div className="hidden md:flex w-full justify-end mt-4">
         <Button 
             size="xl" 
             className="bg-[#FEC60E] dark:bg-[#FEC60E] enabled:hover:bg-[#E5B30C] text-gray-900 font-bold border-0 focus:ring-4 focus:ring-yellow-200 dark:focus:ring-yellow-900"
@@ -36,7 +35,7 @@ export default function RoomsCard() {
         
         {/* Left Side: This Div hosts all the room cards */}
         <div>
-          <div className="grid grid-cols-2 gap-5 h-full">        
+          <div className="grid grid-cols-2 gap-5 w-full h-full">        
             {/* Loop through stats and input the values into the card. */}
             {stats.map((stat, index) => (
               
@@ -74,8 +73,8 @@ export default function RoomsCard() {
         </div>
 
         {/* Right Side: "Add a room" Card */}
-        <div className="w-1/2 md:w-full">
-          <Card className="max-w-md h-full border-2 border-dotted border-gray-400 shadow-none hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+        <div className="w-full">
+          <Card className="w-full h-full border-2 border-dotted border-gray-400 shadow-none hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
             <div className="flex flex-col items-center justify-center gap-2 py-6">        
               <CirclePlus className="w-8 h-8 text-gray-400" />
               <p className="font-['Plus_Jakarta_Sans'] font-bold text-[13px] text-gray-500 dark:text-gray-400">
