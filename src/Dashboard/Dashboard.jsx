@@ -21,7 +21,8 @@ export default function OverviewPage() {
           <DeviceStatus />
         </div>
         <div className="w-full md:col-span-1">
-          <ActivityLog />
+          {/* The dashboard should show a longer recent history preview. */}
+          <ActivityLog maxItems={20} />
         </div>
       </div>
     </>

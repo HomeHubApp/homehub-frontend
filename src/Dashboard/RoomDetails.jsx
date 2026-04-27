@@ -21,16 +21,16 @@ export default function RoomDetails() {
   });
 
   // 2. HELPER FUNCTION: This safely determines where the link should go based on the device type
-  const getDeviceRoute = (type, id) => {
+  const getDeviceRoute = (type, id, name) => {
     switch (type) {
       case "light":
-        return `/lightdevicedetails/${id}`;
+        return `/lightdevicedetails/${id}?name=${encodeURIComponent(name)}`;
       case "ac":
-        return `/acdevicedetails/${id}`; // 
+        return `/acdevicedetails/${id}?name=${encodeURIComponent(name)}`;
       case "fan":
-        return `/fandevicedetails/${id}`; // 
+        return `/fandevicedetails/${id}?name=${encodeURIComponent(name)}`;
       default:
-        return `/device/${id}`; // A fallback just in case!
+        return `/device/${id}?name=${encodeURIComponent(name)}`;
     }
   };
 
@@ -58,7 +58,7 @@ export default function RoomDetails() {
             <div key={index} className="w-full">
               
               {/* 3. Call the helper function and pass in the specific device's type and ID */}
-              <Link to={getDeviceRoute(device.deviceType, device.id)} className="block">
+              <Link to={getDeviceRoute(device.deviceType, device.id, device.deviceName)} className="block">
                 
                 <Card 
                   className={`w-full border-0 rounded-3xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg

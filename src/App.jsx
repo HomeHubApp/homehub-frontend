@@ -17,6 +17,8 @@ import Dashboard from './Dashboard/Dashboard';
 import Rooms from './Dashboard/Rooms';
 import RoomDetails from './Dashboard/RoomDetails';
 import LightDevice from './Dashboard/LightDevice'
+import FanDeviceDetails from './Dashboard/FanDevice'
+
 import Schedule from "./Scheduling/Schedule";
 
 
@@ -47,6 +49,7 @@ function App() {
         <Route path="/rooms" element={<Rooms />} />
         <Route path = "/roomdetails/:roomId" element={<RoomDetails />} />
         <Route path = "/lightdevicedetails/:deviceID" element= {<LightDevice/>} />
+        <Route path = "/fandevicedetails/:deviceID" element= {<FanDeviceDetails/>} />
          <Route path="/schedule" element={<Schedule />} />
       </Route>
      

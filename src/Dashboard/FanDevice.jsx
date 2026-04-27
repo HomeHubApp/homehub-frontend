@@ -6,10 +6,11 @@ import { Card, ToggleSwitch, Button } from "flowbite-react";
 import TopHeader from "./DashboardComponents/TopHeader";
 import ActivityLog from "./DashboardComponents/ActivityLog";
 import PowerSwitchComponent from "./DashboardComponents/PowerSwitchComponent";
+import IncrementalController from "./DashboardComponents/IncrementalController";
 
-export default function LightDetails() {
+export default function FanDeviceDetails() {
     const [searchParams] = useSearchParams();
-    const deviceName = searchParams.get("name") || "Main Light";
+    const deviceName = searchParams.get("name") || "Main Fan";
 
     // Mock Data
     const deviceStatusData = [
@@ -31,25 +32,28 @@ export default function LightDetails() {
                 subtitle="Room Details > Living Room"
             />
 
-            {/* On large screens, grid items stretch to the same row height.
-               Giving each column wrapper `h-full` allows the child cards to fill that shared height. */}
-            <div className="grid grid-cols-1 items-stretch lg:grid-cols-2 lg:gap-5 mt-2 mx-0.5">
+            {/* `gap-4` adds breathing room when the cards stack on mobile.
+                `items-stretch` keeps each desktop column aligned to the same row height. */}
+            <div className="grid grid-cols-1 gap-4 items-stretch lg:grid-cols-3 lg:gap-5 mt-2 mx-0.5">
 
                 {/* Activity Log 
             order-2: Sits at the bottom on mobile
             lg:order-1: Moves back to the left side on large screen
         */}
-                <div className="order-2 lg:order-1 w-full h-full">
+                 <div className="order-2 lg:order-1 w-full h-full">
+                    {/* On this page the speed controller should stretch like the other cards. */}
+                    <IncrementalController className="lg:h-full" />
+                </div>
+
+                <div className="order-3 lg:order-2 w-full h-full">
+                    {/* Device detail pages only need a short preview of the latest activity. */}
                     <ActivityLog maxItems={3} />
                 </div>
 
 
                 <div className="order-1 lg:order-2 w-full h-full flex">
-                    {/* This wrapper now fills the full grid column so the power card can match
-                        the Activity Log height instead of shrinking to two-thirds width/height. */}
+                    {/* Changed width to w-full so it matches the ActivityLog's width completely */}
                     <PowerSwitchComponent />
-
-
                 </div>
 
             </div>
