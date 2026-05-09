@@ -1,6 +1,10 @@
-import SideBar from "./SideBar";
+import type { ReactNode } from "react";
 
-export default function ScheduleLayout({ children }) {
+type ScheduleLayoutProps = {
+  children: ReactNode;
+};
+
+export default function ScheduleLayout({ children }: ScheduleLayoutProps) {
   return (
     <div className="bg-gray-100 min-h-screen">
 

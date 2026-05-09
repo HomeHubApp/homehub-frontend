@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 
-export default function AddScheduleModal({ close }) {
+type AddScheduleModalProps = {
+  close: () => void;
+};
+
+export default function AddScheduleModal({ close }: AddScheduleModalProps) {
 
   const [action, setAction] = useState("Turn On");
 

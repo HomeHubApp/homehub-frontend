@@ -1,6 +1,20 @@
 import { useState } from "react";
 
-export default function ScheduleCard({ schedule }) {
+type Schedule = {
+  id: number;
+  time: string;
+  period: string;
+  action: string;
+  device: string;
+  repeat: string;
+  active: boolean;
+};
+
+type ScheduleCardProps = {
+  schedule: Schedule;
+};
+
+export default function ScheduleCard({ schedule }: ScheduleCardProps) {
   const [enabled, setEnabled] = useState(schedule.active);
 
   return (

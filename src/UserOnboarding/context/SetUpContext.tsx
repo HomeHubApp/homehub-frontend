@@ -1,10 +1,37 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
 
-const SetupContext = createContext();
+type SetupFormData = {
+  address: string;
+  homeName: string;
+  devices: string[];
+};
 
-export const useSetup = () => useContext(SetupContext);
+type SetupContextValue = {
+  formData: SetupFormData;
+  updateFormData: (newData: Partial<SetupFormData>) => void;
+  currentStep: number;
+  nextStep: () => void;
+  prevStep: () => void;
+  submitSetup: () => Promise<void>;
+};
 
-export const SetupProvider = ({ children }) => {
+const SetupContext = createContext<SetupContextValue | undefined>(undefined);
+
+export const useSetup = () => {
+  const context = useContext(SetupContext);
+
+  if (!context) {
+    throw new Error("useSetup must be used within a SetupProvider");
+  }
+
+  return context;
+};
+
+type SetupProviderProps = {
+  children: ReactNode;
+};
+
+export const SetupProvider = ({ children }: SetupProviderProps) => {
   const [formData, setFormData] = useState({
     address: "",
     homeName: "",
@@ -14,7 +41,7 @@ export const SetupProvider = ({ children }) => {
 
   const [currentStep, setCurrentStep] = useState(0);
 
-  const updateFormData = (newData) => {
+  const updateFormData = (newData: Partial<SetupFormData>) => {
     setFormData(prev => ({ ...prev, ...newData }));
   };
 

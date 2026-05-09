@@ -37,9 +37,7 @@ export default function UpComingAutomations() {
                     Otherwise, apply 'text-gray-400'.
                   */}
                   <Clock 
-                    className={`w-5 h-5 ${
-                      item.command === 'on' ? 'text-green-500' : 'text-gray-400'
-                    }`} 
+                    className="h-5 w-5 text-gray-400"
                   />
                 </div>
                 

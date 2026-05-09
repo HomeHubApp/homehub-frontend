@@ -7,6 +7,8 @@ import NavbarComponent from "./NavbarComponent";
 export default function SideBar() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => setIsOpen(!isOpen);
+  const getSidebarLinkProps = (to: string) =>
+    ({ as: Link, to } as unknown as Record<string, unknown>);
 
   // Initialize useLocation to track the current URL path
   const location = useLocation();
@@ -42,8 +44,7 @@ export default function SideBar() {
               <div>
                 <SidebarItemGroup>
                   <SidebarItem 
-                    as={Link} 
-                    to="/dashboard" 
+                    {...getSidebarLinkProps("/dashboard")}
                     icon={HiOutlineHome}
                     className={location.pathname === "/dashboard" ? "bg-[#FFF9E7] dark:bg-gray-700 hover:bg-[#FFF9E7]" : ""}
                   >
@@ -51,8 +52,7 @@ export default function SideBar() {
                   </SidebarItem>
 
                   <SidebarItem 
-                    as={Link} 
-                    to="/rooms" 
+                    {...getSidebarLinkProps("/rooms")}
                     icon={HiViewBoards}
                     className={location.pathname === "/rooms" ? "bg-[#FFF9E7] dark:bg-gray-700 hover:bg-[#FFF9E7]" : ""}
                   >
@@ -60,8 +60,7 @@ export default function SideBar() {
                   </SidebarItem>
 
                   <SidebarItem 
-                    as={Link} 
-                    to="/schedule" 
+                    {...getSidebarLinkProps("/schedule")}
                     icon={HiCalendar}
                     className={location.pathname === "/schedule" ? "bg-[#FFF9E7] dark:bg-gray-700 hover:bg-[#FFF9E7]" : ""}
                   >
@@ -69,8 +68,7 @@ export default function SideBar() {
                   </SidebarItem>
 
                   <SidebarItem 
-                    as={Link} 
-                    to="/profile" 
+                    {...getSidebarLinkProps("/profile")}
                     icon={HiUsers}
                     className={location.pathname === "/profile" ? "bg-[#FFF9E7] dark:bg-gray-700 hover:bg-[#FFF9E7]" : ""}
                   >
@@ -84,8 +82,7 @@ export default function SideBar() {
               <div> 
                 <SidebarItemGroup>
                   <SidebarItem 
-                    as={Link} 
-                    to="/dashboard" 
+                    {...getSidebarLinkProps("/dashboard")}
                     icon={HiUsers}
                     className="bg-[#FEC60E] hover:bg-amber-200 dark:bg-gray-900" >
                     My House

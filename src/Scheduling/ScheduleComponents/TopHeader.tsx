@@ -1,7 +1,12 @@
 import { Dropdown, DropdownItem, Avatar } from "flowbite-react";
 import { Bell } from "lucide-react";
 
-export default function TopHeader({Title, Subtitle}) {
+type ScheduleTopHeaderProps = {
+  Title: string;
+  Subtitle: string;
+};
+
+export default function TopHeader({ Title, Subtitle }: ScheduleTopHeaderProps) {
   return (
     // 1. flex justify-between pushes the left and right groups to the edges
     // 2. We use flex-col on very small screens, and sm:flex-row on normal screens so it doesn't squish on mobile

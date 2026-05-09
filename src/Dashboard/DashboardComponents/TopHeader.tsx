@@ -1,4 +1,9 @@
-export default function TopHeader({ title, subtitle }) {
+type TopHeaderProps = {
+  title: string;
+  subtitle: string;
+};
+
+export default function TopHeader({ title, subtitle }: TopHeaderProps) {
   return (
     <header className="flex  sm:flex-row justify-between items-start sm:items-center mb-8 gap-2 sm:gap-0 pt-2">
       <div className="flex flex-col">

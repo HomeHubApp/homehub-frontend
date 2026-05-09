@@ -10,7 +10,15 @@ import {
 import { Bell } from "lucide-react";
 import { HiMenu } from "react-icons/hi";
 
-export default function NavbarComponent({ isSidebarOpen, toggleSidebar }) {
+type NavbarComponentProps = {
+  isSidebarOpen: boolean;
+  toggleSidebar: () => void;
+};
+
+export default function NavbarComponent({
+  isSidebarOpen,
+  toggleSidebar,
+}: NavbarComponentProps) {
   const notificationsMessages = [
     "Living room lights were turned on.",
     "Front door was unlocked.",

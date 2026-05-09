@@ -1,7 +1,11 @@
 import { Card } from "flowbite-react";
 import { Power } from "lucide-react"; // Import an icon to use as the indicator
 
-export default function ActivityLog({ maxItems = 20 }) {
+type ActivityLogProps = {
+  maxItems?: number;
+};
+
+export default function ActivityLog({ maxItems = 20 }: ActivityLogProps) {
   // This shared component is used in multiple places.
   // `maxItems` lets each page decide how many recent activity rows it wants to show
   // without duplicating the UI markup in several files.

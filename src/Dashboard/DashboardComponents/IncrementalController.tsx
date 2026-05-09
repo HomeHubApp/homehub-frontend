@@ -1,7 +1,12 @@
-
 import { Minus, Plus } from "lucide-react";
 
-export default function LightDetails(props) {
+type IncrementalControllerProps = {
+  title: string;
+  value: string;
+  className?: string;
+};
+
+export default function LightDetails(props: IncrementalControllerProps) {
     return(
         <div>
            <p className="px-5 pt-5 font-bold text-2xl">{props.title}</p>

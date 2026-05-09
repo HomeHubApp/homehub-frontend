@@ -1,9 +1,18 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, type ChangeEvent, type ClipboardEvent, type KeyboardEvent } from "react";
 import "./Otp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { verifyEmailCode, resendVerificationCode } from "./api";
+import type { AxiosError } from "axios";
 
-export default function Otp({ email = "john12@example.com" }) {
+type OtpProps = {
+  email?: string;
+};
+
+type ApiErrorResponse = {
+  message?: string;
+};
+
+export default function Otp({ email = "john12@example.com" }: OtpProps) {
   const LENGTH = 6;
   const RESEND_SECS = 30;
   const navigate = useNavigate();
@@ -13,7 +22,7 @@ export default function Otp({ email = "john12@example.com" }) {
   const [canResend, setCanResend] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const refs = useRef([]);
+  const refs = useRef<Array<HTMLInputElement | null>>([]);
 
   useEffect(() => { refs.current[0]?.focus(); }, []);
 
@@ -23,7 +32,7 @@ export default function Otp({ email = "john12@example.com" }) {
     return () => clearTimeout(t);
   }, [countdown]);
 
-  const handleChange = (e, i) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>, i: number) => {
     const val = e.target.value.replace(/\D/g, "").slice(-1);
     const next = [...otp];
     next[i] = val;
@@ -32,7 +41,7 @@ export default function Otp({ email = "john12@example.com" }) {
     if (val && i < LENGTH - 1) refs.current[i + 1]?.focus();
   };
 
-  const handleKeyDown = (e, i) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>, i: number) => {
     if (e.key === "Backspace") {
       if (otp[i]) {
         const next = [...otp]; next[i] = ""; setOtp(next);
@@ -45,7 +54,7 @@ export default function Otp({ email = "john12@example.com" }) {
     if (e.key === "ArrowRight" && i < LENGTH - 1) refs.current[i + 1]?.focus();
   };
 
-  const handlePaste = (e) => {
+  const handlePaste = (e: ClipboardEvent<HTMLDivElement>) => {
     e.preventDefault();
     const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, LENGTH);
     const next = Array(LENGTH).fill("");
@@ -68,7 +77,8 @@ export default function Otp({ email = "john12@example.com" }) {
       await verifyEmailCode({ email, code: otp.join("") });
       navigate("/dashboard"); // redirect on success
     } catch (err) {
-      setError(err.response?.data?.message || "Invalid code. Try again.");
+      const apiError = err as AxiosError<ApiErrorResponse>;
+      setError(apiError.response?.data?.message || "Invalid code. Try again.");
     } finally {
       setLoading(false);
     }
@@ -86,7 +96,8 @@ export default function Otp({ email = "john12@example.com" }) {
       setCanResend(false);
       refs.current[0]?.focus();
     } catch (err) {
-      setError(err.response?.data?.message || "Failed to resend. Try again.");
+      const apiError = err as AxiosError<ApiErrorResponse>;
+      setError(apiError.response?.data?.message || "Failed to resend. Try again.");
     }
   };
 
@@ -104,7 +115,9 @@ export default function Otp({ email = "john12@example.com" }) {
           {otp.map((digit, i) => (
             <input
               key={i}
-              ref={el => (refs.current[i] = el)}
+              ref={(el) => {
+                refs.current[i] = el;
+              }}
               type="text"
               inputMode="numeric"
               maxLength={1}
