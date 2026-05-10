@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Index Page
 import LandingPage from './LandingPage';
@@ -21,16 +21,27 @@ import FanDeviceDetails from './Dashboard/FanDevice'
 import AcDeviceDetails from './Dashboard/ACDevice'
 
 import Schedule from "./Scheduling/Schedule";
+import LoadingScreen from "./components/LoadingScreen";
+import { useAuth } from "./context/AuthContext";
 
 
 function App() {
+  const { isAuthenticated, isBootstrappingAuth } = useAuth();
+
+  if (isBootstrappingAuth) {
+    return <LoadingScreen label="Checking your session..." />;
+  }
+
   return (
      
     <Routes>    
  
       <Route path= '/' element={<LandingPage />} />
       <Route path='/signup' element={<SignUp />} />
-      <Route path='/login' element={<LoginForm />} />
+      <Route
+        path='/login'
+        element={isAuthenticated ? <Navigate to="/dashboard" replace /> : <LoginForm />}
+      />
       <Route path='/otp' element={<Otp />} />
      
 
@@ -45,7 +56,9 @@ function App() {
         } 
       />
       {/* Dashboard Layout Route */}
-      <Route element={<DashboardLayout />} >
+      <Route
+        element={isAuthenticated ? <DashboardLayout /> : <Navigate to="/login" replace />}
+      >
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/rooms" element={<Rooms />} />
         <Route path = "/roomdetails/:roomId" element={<RoomDetails />} />

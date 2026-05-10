@@ -9,6 +9,10 @@ import {
 } from "flowbite-react";
 import { Bell } from "lucide-react";
 import { HiMenu } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { getApiErrorMessage, useAuth } from "../context/AuthContext";
 
 type NavbarComponentProps = {
   isSidebarOpen: boolean;
@@ -19,6 +23,9 @@ export default function NavbarComponent({
   isSidebarOpen,
   toggleSidebar,
 }: NavbarComponentProps) {
+  const navigate = useNavigate();
+  const { logout, user } = useAuth();
+  const [isSigningOut, setIsSigningOut] = useState(false);
   const notificationsMessages = [
     "Living room lights were turned on.",
     "Front door was unlocked.",
@@ -27,6 +34,22 @@ export default function NavbarComponent({
     "Your schedule was updated for today.",
   ];
   const notificationsCount = notificationsMessages.length;
+
+  async function handleSignOut() {
+    setIsSigningOut(true);
+
+    try {
+      await toast.promise(logout(), {
+        loading: "Signing you out...",
+        success: "Signed out successfully.",
+        error: (error) => getApiErrorMessage(error),
+      });
+
+      navigate("/login", { replace: true });
+    } finally {
+      setIsSigningOut(false);
+    }
+  }
 
   return (
     <Navbar fluid rounded>
@@ -73,14 +96,16 @@ export default function NavbarComponent({
           }
         >
           <DropdownHeader>
-            <span className="block text-sm">Bonnie Green</span>
-            <span className="block truncate text-sm font-medium">name@flowbite.com</span>
+            <span className="block text-sm">{user?.name ?? "HomeHub User"}</span>
+            <span className="block truncate text-sm font-medium">{user?.email ?? "Signed in"}</span>
           </DropdownHeader>
           <DropdownItem>Dashboard</DropdownItem>
           <DropdownItem>Settings</DropdownItem>
           <DropdownItem>Earnings</DropdownItem>
           <DropdownDivider />
-          <DropdownItem>Sign out</DropdownItem>
+          <DropdownItem onClick={handleSignOut} disabled={isSigningOut}>
+            {isSigningOut ? "Signing out..." : "Sign out"}
+          </DropdownItem>
         </Dropdown>
       </div>
       
