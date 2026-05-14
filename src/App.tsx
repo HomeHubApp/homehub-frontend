@@ -25,6 +25,7 @@ import LoadingScreen from "./components/LoadingScreen";
 import { useAuth } from "./context/AuthContext";
 
 
+
 function App() {
   const { isAuthenticated, isBootstrappingAuth } = useAuth();
 
